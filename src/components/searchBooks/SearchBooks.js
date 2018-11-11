@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 class SearchBooks extends Component {
 
-    render() {
-        return;
-    }
+  render() {
+    return;
+  }
 }
 
 export default SearchBooks
