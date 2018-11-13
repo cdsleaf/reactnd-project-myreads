@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import MyReadList from './myReadList/MyReadList'
 import SearchBooks from './searchBooks/SearchBooks'
 import * as BooksAPI from './../action/BooksAPI'
@@ -55,24 +55,26 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Route exact path='/' render={ () => (
-          <MyReadList 
-            myReadBooks={this.state.myReadBooks}
-            getMyReadBooks={this.getMyReadBooks}
-            categories={this.categories}
-            categoryChagerOptions={this.categoryChagerOptions} 
-            handleChangeCategory={this.handleChangeCategory}
-          />
-        )}>
-        </Route>
-        <Route path='/search' render={ () => (
-          <SearchBooks 
-            myReadBooks={this.state.myReadBooks}
-            categoryChagerOptions={this.categoryChagerOptions} 
-            handleChangeCategory={this.handleChangeCategory}
-          />
-        )}>
-        </Route>
+        <Switch>
+          <Route exact path='/' render={ () => (
+            <MyReadList 
+              myReadBooks={this.state.myReadBooks}
+              getMyReadBooks={this.getMyReadBooks}
+              categories={this.categories}
+              categoryChagerOptions={this.categoryChagerOptions} 
+              handleChangeCategory={this.handleChangeCategory}
+            />
+          )}>
+          </Route>
+          <Route path='/search' render={ () => (
+            <SearchBooks 
+              myReadBooks={this.state.myReadBooks}
+              categoryChagerOptions={this.categoryChagerOptions} 
+              handleChangeCategory={this.handleChangeCategory}
+            />
+          )}>
+          </Route>
+        </Switch>  
       </div>
     )
   }
