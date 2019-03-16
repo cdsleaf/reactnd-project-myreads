@@ -12,6 +12,7 @@ class SearchBooks extends Component {
       searchedBooks: []
     }
     this.handleSearchText = this.handleSearchText.bind(this);
+    this.handleChangeInSearchedBook = this.handleChangeInSearchedBook.bind(this);
   }
 
   handleSearchText(query){
@@ -38,8 +39,22 @@ class SearchBooks extends Component {
     })
   }
 
+  handleChangeInSearchedBook(book, shelf){
+   
+    this.setState(state => ({
+      ...state, 
+      searchedBooks: state.searchedBooks.reduce( (a, e) => {
+        return e.id === book.id ? 
+          shelf === 'none' ? a : [ ...a, { ...e, 'shelf': shelf } ]
+          : [ ...a, e ]
+      }, []),
+    }));
+
+    this.props.handleChangeCategory(book, shelf)
+  }
+
   render() {
-    const { categoryChagerOptions, handleChangeCategory } = this.props;
+    const { categoryChagerOptions } = this.props;
     return (
       <div className="search-books">
         <SearchBar handleSearchText={this.handleSearchText}/>
@@ -49,7 +64,7 @@ class SearchBooks extends Component {
               <li key={book.id}>
                 <Book book={book} 
                   categoryChagerOptions={categoryChagerOptions}
-                  handleChangeCategory={handleChangeCategory} /> 
+                  handleChangeCategory={this.handleChangeInSearchedBook} /> 
               </li>
             ))}
           </ol>
