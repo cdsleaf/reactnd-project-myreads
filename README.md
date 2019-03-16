@@ -6,8 +6,13 @@ This App allows you to select and categorize books you have read, are currently 
 
 ## Table of contents
 
+- [Demo](#demo)
 - [Quick Start](#quick-start)
 - [Documentation](#documentation)
+
+## Demo
+
+For a demo, check out [https://my-reads-3a074.firebaseapp.com/](https://my-reads-3a074.firebaseapp.com/)
 
 ## Quick Start
 
@@ -22,7 +27,9 @@ This App allows you to select and categorize books you have read, are currently 
 ├── README.md
 ├── LICENSE
 ├── SEARCH_TERMS.md 
-├── package.json 
+├── package.json
+├── firebaserc. 
+├── firebase.json  
 ├── public
 │   ├── favicon.ico
 │   └── index.html
